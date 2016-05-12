@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8"> 
+  <link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+  <script type="text/javascript" src="jquery1x.js"></script>
+  <script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="main2.7.js"></script>
+
+</head>
+<body>
+  <div class="total">
+    <div class="left">
+      <canvas id="myCanvas" width="600px" height="600px">
+        Your browser does not support the canvas element.
+      </canvas>
+      <div id="remove-down"class="slide-container slide-container-down">
+        <div class="slide">
+          <div class="state">
+          </div>
+        </div>
+        <button type="button" class="downslide downslide-up">
+          <i class="imooc-icon icon-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+    <div class="right">
+      <ul class="nav nav-pills navigation1">
+        <li class="active" id="step-one"><a href="#">Step1</a></li>
+        <li id="step-two"><a href="#">Step2</a></li>
+        <li id="step-three"><a href="#">Step3</a></li>
+      </ul>
+      
+      <div class="total-step">
+        <!--step1-->
+        <div class="step-one">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle menu1" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              Choose Scheme
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right list1" role="menu" aria-labelledby="dropdownMenu1" id="choosescheme">
+              <li role="presentation" class="schemeclass" data-scheme="332"><a role="menuitem" tabindex="-1" href="#">S:3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D:3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T:2</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation" class=" schemeclass active" data-scheme="553"><a role="menuitem" tabindex="-1" href="#">S:5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D:5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T:3</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation" class="schemeclass" data-scheme="10105"><a role="menuitem" tabindex="-1" href="#">S:10&nbsp;&nbsp;&nbsp;&nbsp;D:10&nbsp;&nbsp;&nbsp;&nbsp;T:5</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="self-defining">Self-Defining Data</a></li>
+              <li role="presentation" class="divider"></li>
+            </ul>
+          </div>
+          
+          <form class="form-horizontal" role="form">
+            <div class="form-group form-s">
+            <label for="inputS" class="col-sm-2 control-label">S:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control form-width" id="inputS" placeholder="Please input S">
+              </div>
+            </div>
+            <div class="form-group form-d">
+              <label for="inputD" class="col-sm-2 control-label">D:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control form-width" id="inputD" placeholder="Please input D">
+              </div>
+            </div>
+            <div class="form-group form-t">
+              <label for="inputT" class="col-sm-2 control-label">T:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control form-width" id="inputT" placeholder="Please input T">
+              </div>
+            </div>
+          </form>
+
+          <button class="btn btn-primary confirm" type="button">Confirm</button>
+          <button class="btn btn-primary data-download cdownload" data-toggle="modal" data-target="#mymodal-data" type="button">Test Data Download</button>
+
+          <div class="modal" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title">Download Data</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Data file is a .txt file called inputjson.txt that wirtten in json form,confirm to download</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                  <button type="button" class="btn btn-primary" id="idownload">confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary next-step" type="button">Next Step</button>
+        </div>
+
+        <!--step2-->
+        <div class="step-two" style="display: none;">
+          <div class="arithmetic">
+            <h3>Choose Inner Algorithm</h3>
+            <form role="form">
+              <div class="radio">
+                <label class="selection">
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="ant" checked>
+                  ant colony
+                </label>
+              </div>
+              <div class="radio">
+                <label class="selection">
+                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="genetic">
+                  genetic
+                </label>
+              </div>
+            </form>     
+          </div>
+
+          <div class="upload-total">
+            <h3>Upload Your Algorithm</h3>
+            <form class="form-horizontal nameinput" role="form">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control namewidth" id="inputEmail3">
+                </div>
+              </div>
+            </form>
+
+            <textarea rows="6" cols="30" class="upload-text">
+            </textarea>
+          </div>
+
+          <button class="btn btn-primary" type="button">Confirm</button>
+          <button class="btn btn-primary next-step2" type="button">Next Step</button>
+        </div>
+
+        <!--step3-->
+        <div class="step-three" style="display: none;">
+          <button type="button" class="start btn btn-primary" id="istart">Start</button>
+          <button type="button" class="cpause btn btn-primary" id="ipause">Pause</button>
+
+          <div class="modal" id="overmodal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title">Over</h4>
+                </div>
+                <div class="modal-body">
+                  <p id="replacetxt"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</body>
+
+</html>
