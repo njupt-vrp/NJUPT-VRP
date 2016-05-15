@@ -29,13 +29,17 @@
 
     .start{
         display: block;
+        width: 80px;
+        height: 34px;
         margin-left: 750px;
         margin-top: 80px;
     }
 
     .cpause {
         display: block;
-        margin-left: 744px;
+        width: 80px;
+        height: 34px;
+        margin-left: 750px;
         margin-top: 20px;
     }
 
@@ -262,10 +266,10 @@
         font-size: 25px;
     }
     .icon-check-green{
-       color: green;
-   }
+     color: green;
+ }
 
-   .upslide{
+ .upslide{
     position: absolute;
     top: 580px;
     left: 579px;
@@ -319,12 +323,12 @@ ul.nav-pills li{
 }
 
 .confirm{
-    margin-top: 214px;
+    margin-top: 330px;
     margin-left: 64px;
 }
 
 .data-download{
-    margin-top: 214px;
+    margin-top: 330px;
     margin-left: 15px;
 }
 
@@ -335,7 +339,7 @@ ul.nav-pills li{
 
 .nameinput{
     display: block;
-    margin-left: 621px;
+    margin-left: -41px;
 }
 
 .namewidth{
@@ -343,14 +347,15 @@ ul.nav-pills li{
 }
 
 .next-step{
-    margin-top: 193px;
-    margin-left: 230px;
+    position: absolute;
+    top: 520px;
+    left: 830px;
 }
 
 .next-step2{
-    position: relative;
-    top: -221px;
-    left: 750px;
+    position: absolute;
+    top: 520px;
+    left: 830px;
 }
 
 .upload-text {
@@ -364,21 +369,52 @@ ul.nav-pills li{
 .form-s {
     position: absolute;
     top: 95px;
-    left: 695px;
+    left: 670px;
 }
 
 .form-d {
     position: absolute;
     top: 145px;
-    left: 695px;
+    left: 670px;
 }
 
 .form-t {
     position: absolute;
     top: 195px;
-    left: 695px;
+    left: 670px;
+}
+
+.sq {
+    width: 188px;
+    position: absolute;
+    top: 245px;
+    left: 671px;
+}
+
+.dq {
+    width: 188px;
+    position: absolute;
+    top: 295px;
+    left: 671px;
+}
+
+.tq {
+    width: 188px;
+    position: absolute;
+    top: 345px;
+    left: 671px;
+}
+
+.input-schedule {
+    position: relative;
+    left: 30px;
+}
+
+.input-schedule-t {
+    position: relative;
+    left: 32px;
 }
 
 .form-width {
-    width: 150px;
+    width: 120px;
 }
