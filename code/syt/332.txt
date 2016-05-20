@@ -1,0 +1,81 @@
+{
+"record":
+[{
+ "truckid":1,
+ "source":[150,70],
+ "target":"m1",
+ "number":0,
+ "nowload":0
+},
+{
+ "truckid":1,
+ "source":"m1",
+ "target":"n1",
+ "number":2,
+ "nowload":2
+},
+{
+ "truckid":1,
+ "source":"n1",
+ "target":"m1",
+ "number":-2,
+ "nowload":0
+},
+{
+ "truckid":1,
+ "source":"m1",
+ "target":"n2",
+ "number":2,
+ "nowload":2
+},
+{
+ "truckid":1,
+ "source":"n2",
+ "target":"null",
+ "number":-2,
+ "nowload":0
+},
+{
+ "truckid":2,
+ "source":[120,150],
+ "target":"m1",
+ "number":0,
+ "nowload":0
+},
+{
+ "truckid":2,
+ "source":"m1",
+ "target":"n1",
+ "number":2,
+ "nowload":2
+},
+{
+ "truckid":2,
+ "source":"n1",
+ "target":"n3",
+ "number":-1,
+ "nowload":1
+},
+{
+ "truckid":2,
+ "source":"n3",
+ "target":"null",
+ "number":-1,
+ "nowload":0
+}
+]
+,
+"pathlist":
+[
+{
+"truckid":1,
+"path":[[150,70],"m1","n1","m1","n2"]
+},
+{
+"truckid":2,
+"path":[[120,150],"m1","n1","n3"]
+}
+]
+,
+"time":0.0090
+}
