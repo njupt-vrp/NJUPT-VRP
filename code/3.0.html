@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="main.css">
-  <title>2.9</title>
+  <title>3.0</title>
   <script type="text/javascript" src="jquery1x.js"></script>
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="main2.9.js"></script>
+  <script type="text/javascript" src="main3.0.js"></script>
 </head>
 
 <body>
@@ -75,7 +75,7 @@
             <input type="button" class="btn btn-primary dq" value="Demand Quantity">
             <input type="button" class="btn btn-primary tq" value="Truck Quantity">
           </form>
-          <button class="btn btn-primary confirm" type="button">Generate</button>
+          <button class="btn btn-primary generate" type="button">Generate</button>
           <button class="btn btn-primary data-download cdownload" data-toggle="modal" data-target="#mymodal-data" type="button">Test Data Download</button>
           <div class="modal" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -89,7 +89,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-                  <button type="button" class="btn btn-primary" id="idownload">confirm</button>
+                  <button type="button" class="btn btn-primary" id="idownload" data-dismiss="modal">confirm</button>
                 </div>
               </div>
             </div>
@@ -104,11 +104,6 @@
               <div class="radio">
                 <label class="selection">
                   <input type="radio" name="optionsRadios" id="optionsRadios1" value="ant" checked> ant colony
-                </label>
-              </div>
-              <div class="radio">
-                <label class="selection">
-                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="genetic"> genetic
                 </label>
               </div>
               <div class="radio">
@@ -213,7 +208,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-          <button type="button" class="btn btn-primary" id="idownload">confirm</button>
+          <button type="button" class="btn btn-primary" id="source-quantity" data-dismiss="modal">confirm</button>
         </div>
       </div>
     </div>
@@ -247,7 +242,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-          <button type="button" class="btn btn-primary" id="idownload">confirm</button>
+          <button type="button" class="btn btn-primary" id="demand-quantity" data-dismiss="modal">confirm</button>
         </div>
       </div>
     </div>
@@ -275,7 +270,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-          <button type="button" class="btn btn-primary" id="idownload">confirm</button>
+          <button type="button" class="btn btn-primary" id="truck-capacity" data-dismiss="modal">confirm</button>
         </div>
       </div>
     </div>

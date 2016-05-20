@@ -394,11 +394,12 @@ var mcity = {
 //类 货车类
 var mtruck = {
     make:
-    //构造函数 (mpos,int) vpos:车辆坐标 vnowload:车上目前载量
-        function(vpos, vnowload) {
+    //构造函数 (mpos,int) vpos:车辆坐标 vcapacity:车上目前载量
+        function(vpos, vcapacity) {
         var ttruck = {};
+		ttruck.capacity=vcapacity;
         ttruck.pos = vpos; //成员变量 车辆坐标
-        ttruck.nowload = vnowload; //成员变量 车上目前载量
+        ttruck.nowload = 0; //成员变量 车上目前载量
         ttruck.bdrive = true;
         ttruck.mupdate =
             //成员函数 int(mjob) 根据job更新车辆及城市状态，如果到达返回1，否则返回0
@@ -920,8 +921,8 @@ $(document).ready(function() {
             nvec[0] = mcity.make(mpos.make(200, 30), "n", 3);
             nvec[1] = mcity.make(mpos.make(180, 70), "n", 2);
             nvec[2] = mcity.make(mpos.make(250, 200), "n", 1)
-            truckvec[0] = mtruck.make(mpos.make(150, 70), 0);
-            truckvec[1] = mtruck.make(mpos.make(120, 150), 0);
+            truckvec[0] = mtruck.make(mpos.make(150, 70), 2);
+            truckvec[1] = mtruck.make(mpos.make(120, 150), 2);
 
             document.getElementById("inputS").value = 3;
             document.getElementById("inputD").value = 3;
@@ -1168,29 +1169,593 @@ $(document).ready(function() {
             nvec[3] = mcity.make(mpos.make(480, 500), "n", 3);
             nvec[4] = mcity.make(mpos.make(500, 480), "n", 2);
 
-            truckvec[0] = mtruck.make(mpos.make(110, 110), 0);
-            truckvec[1] = mtruck.make(mpos.make(300, 300), 0);
-            truckvec[2] = mtruck.make(mpos.make(490, 490), 0);
+            truckvec[0] = mtruck.make(mpos.make(110, 110), 2);
+            truckvec[1] = mtruck.make(mpos.make(300, 300), 2);
+            truckvec[2] = mtruck.make(mpos.make(490, 490), 2);
 
             document.getElementById("inputS").value = 5;
             document.getElementById("inputD").value = 5;
             document.getElementById("inputT").value = 3;
-            $(".add-sq").append('<div class="form-group inputsq"><label for="inputsq" class="col-sm-4 control-label sq-label">Source Quantity 4</label><div class="col-sm-8"><input type="number" class="form-control form-width" id="inputSQ4"></div></div>');
-            $(".add-sq").append('<div class="form-group inputsq"><label for="inputsq" class="col-sm-4 control-label sq-label">Source Quantity 5</label><div class="col-sm-8"><input type="number" class="form-control form-width" id="inputSQ5"></div></div>');
-            $(".add-dq").append('<div class="form-group inputdq"><label for="inputdq" class="col-sm-4 control-label dq-label">Demand Quantity 4</label><div class="col-sm-8"><input type="number" class="form-control form-width" id="inputDQ4"></div></div>');
-            $(".add-dq").append('<div class="form-group inputdq"><label for="inputdq" class="col-sm-4 control-label dq-label">Demand Quantity 5</label><div class="col-sm-8"><input type="number" class="form-control form-width" id="inputDQ5"></div></div>');
-            $(".add-tq").append('<div class="form-group inputtq"><label for="inputtq" class="col-sm-4 control-label tq-label">Truck Quantity 3</label><div class="col-sm-8"><input type="number" class="form-control form-width" id="inputTQ3"></div></div>');
+            
             
         } else if (schemeChoose == '10-10-5') {
             document.getElementById("inputS").value = 10;
             document.getElementById("inputD").value = 10;
             document.getElementById("inputT").value = 5;
+			
+			inputjsonstr='\
+			{\
+			"sourcelist":[\
+                     {\
+                      "x":318,\
+                      "y":475,\
+                      "num":5\
+                  },\
+                  {\
+                      "x":296,\
+                      "y":155,\
+                      "num":5\
+                  },\
+                  {\
+                      "x":150,\
+                      "y":112,\
+                      "num":5\
+                  },\
+                  {\
+                      "x":225,\
+                      "y":122,\
+                      "num":5\
+                  },\
+                  {\
+                      "x":324,\
+                      "y":124,\
+                      "num":2\
+                  },\
+                  {\
+                      "x":50,\
+                      "y":595,\
+                      "num":7\
+                  },\
+                  {\
+                      "x":516,\
+                      "y":114,\
+                      "num":9\
+                  },\
+                  {\
+                      "x":296,\
+                      "y":84,\
+                      "num":8\
+                  },\
+                  {\
+                      "x":293,\
+                      "y":261,\
+                      "num":4\
+                  },\
+                  {\
+                      "x":298,\
+                      "y":382,\
+                      "num":5\
+                  }\
+                  ],\
+                  "targetlist":[\
+                  {\
+                      "x":177,\
+                      "y":480,\
+                      "num":3\
+                  },\
+                  {\
+                      "x":126,\
+                      "y":116,\
+                      "num":1\
+                  },\
+                  {\
+                      "x":257,\
+                      "y":199,\
+                      "num":4\
+                  },\
+                  {\
+                      "x":365,\
+                      "y":596,\
+                      "num":5\
+                  },\
+				  {\
+                      "x":142,\
+                      "y":19,\
+                      "num":3\
+                  },\
+                  {\
+                      "x":440,\
+                      "y":279,\
+                      "num":3\
+                  },\
+                  {\
+                      "x":104,\
+                      "y":400,\
+                      "num":5\
+                  },\
+                  {\
+                      "x":285,\
+                      "y":383,\
+                      "num":2\
+                  },\
+                  {\
+                      "x":73,\
+                      "y":23,\
+                      "num":1\
+                  },\
+                  {\
+                      "x":359,\
+                      "y":309,\
+                      "num":5\
+                  }\
+                  ],\
+                  "trucklist":[\
+                  {\
+                      "x":598,\
+                      "y":287,\
+                      "capacity":2\
+                  },\
+                  {\
+                      "x":446,\
+                      "y":69,\
+                      "capacity":2\
+                  },\
+                  {\
+                      "x":180,\
+                      "y":244,\
+                      "capacity":2\
+                  },\
+                  {\
+                      "x":361,\
+                      "y":565,\
+                      "capacity":2\
+                  },\
+                  {\
+                      "x":335,\
+                      "y":346,\
+                      "capacity":2\
+                  }\
+                  ]\
+                }';
+			jsonstr='\
+{\
+"record":\
+[{\
+"truckid":1,\
+"source":[598,287],\
+"target":"m7",\
+"number":0,\
+"nowload":0\
+},\
+{\
+"truckid":1,\
+"source":"m7",\
+"target":"n6",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":1,\
+"source":"n6",\
+"target":"m9",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":1,\
+"source":"m9",\
+"target":"n9",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":1,\
+"source":"n9",\
+"target":"m8",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":1,\
+"source":"m8",\
+"target":"n10",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":1,\
+"source":"n10",\
+"target":"null",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":2,\
+"source":[446,69],\
+"target":"m5",\
+"number":0,\
+"nowload":0\
+},\
+{\
+"truckid":2,\
+"source":"m5",\
+"target":"n3",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":2,\
+"source":"n3",\
+"target":"m2",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":2,\
+"source":"m2",\
+"target":"n10",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":2,\
+"source":"n10",\
+"target":"m2",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":2,\
+"source":"m2",\
+"target":"n6",\
+"number":1,\
+"nowload":1\
+},\
+{\
+"truckid":2,\
+"source":"n6",\
+"target":"m10",\
+"number":-1,\
+"nowload":0\
+},\
+{\
+"truckid":2,\
+"source":"m10",\
+"target":"n8",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":2,\
+"source":"n8",\
+"target":"m10",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":2,\
+"source":"m10",\
+"target":"n4",\
+"number":1,\
+"nowload":1\
+},\
+{\
+"truckid":2,\
+"source":"n4",\
+"target":"null",\
+"number":-1,\
+"nowload":0\
+},\
+{\
+"truckid":3,\
+"source":[180,244],\
+"target":"m2",\
+"number":0,\
+"nowload":0\
+},\
+{\
+"truckid":3,\
+"source":"m2",\
+"target":"n3",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":3,\
+"source":"n3",\
+"target":"m4",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":3,\
+"source":"m4",\
+"target":"n2",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":3,\
+"source":"n2",\
+"target":"m3",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":3,\
+"source":"m3",\
+"target":"n5",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":3,\
+"source":"n5",\
+"target":"m4",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":3,\
+"source":"m4",\
+"target":"n7",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":3,\
+"source":"n7",\
+"target":"m1",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":3,\
+"source":"m1",\
+"target":"n4",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":3,\
+"source":"n4",\
+"target":"null",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":4,\
+"source":[361,565],\
+"target":"m1",\
+"number":0,\
+"nowload":0\
+},\
+{\
+"truckid":4,\
+"source":"m1",\
+"target":"n3",\
+"number":1,\
+"nowload":1\
+},\
+{\
+"truckid":4,\
+"source":"n3",\
+"target":"m4",\
+"number":-1,\
+"nowload":0\
+},\
+{\
+"truckid":4,\
+"source":"m4",\
+"target":"n5",\
+"number":1,\
+"nowload":1\
+},\
+{\
+"truckid":4,\
+"source":"n5",\
+"target":"m3",\
+"number":-1,\
+"nowload":0\
+},\
+{\
+"truckid":4,\
+"source":"m3",\
+"target":"n1",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":4,\
+"source":"n1",\
+"target":"m1",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":4,\
+"source":"m1",\
+"target":"n4",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":4,\
+"source":"n4",\
+"target":"null",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":5,\
+"source":[335,346],\
+"target":"m10",\
+"number":0,\
+"nowload":0\
+},\
+{\
+"truckid":5,\
+"source":"m10",\
+"target":"n1",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":5,\
+"source":"n1",\
+"target":"m6",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":5,\
+"source":"m6",\
+"target":"n7",\
+"number":2,\
+"nowload":2\
+},\
+{\
+"truckid":5,\
+"source":"n7",\
+"target":"m9",\
+"number":-2,\
+"nowload":0\
+},\
+{\
+"truckid":5,\
+"source":"m9",\
+"target":"n10",\
+"number":1,\
+"nowload":1\
+},\
+{\
+"truckid":5,\
+"source":"n10",\
+"target":"m9",\
+"number":-1,\
+"nowload":0\
+},\
+{\
+"truckid":5,\
+"source":"m9",\
+"target":"n7",\
+"number":1,\
+"nowload":1\
+},\
+{\
+"truckid":5,\
+"source":"n7",\
+"target":"null",\
+"number":-1,\
+"nowload":0\
+}\
+]\
+,\
+"pathlist":\
+[\
+{\
+"truckid":1,\
+"path":[[598,287],"m7","n6","m9","n9","m8","n10"]\
+},\
+{\
+"truckid":2,\
+"path":[[446,69],"m5","n3","m2","n10","m2","n6","m10","n8","m10","n4"]\
+},\
+{\
+"truckid":3,\
+"path":[[180,244],"m2","n3","m4","n2","m3","n5","m4","n7","m1","n4"]\
+},\
+{\
+"truckid":4,\
+"path":[[361,565],"m1","n3","m4","n5","m3","n1","m1","n4"]\
+},\
+{\
+"truckid":5,\
+"path":[[335,346],"m10","n1","m6","n7","m9","n10","m9","n7"]\
+}\
+]\
+,\
+"time":102.6190}';
+            jsonroot = jQuery.parseJSON(jsonstr);
+
+            snum = 10;
+            dnum = 10;
+            tnum = 5;
+
+            //初始化部分全局变量
+            mvec = [];
+            nvec = [];
+            truckvec = [];
+
+            mvec[0] = mcity.make(mpos.make(318, 475), "m", 5);
+            mvec[1] = mcity.make(mpos.make(296, 155), "m", 5);
+            mvec[2] = mcity.make(mpos.make(150, 112), "m", 5);
+            mvec[3] = mcity.make(mpos.make(225, 122), "m", 5);
+            mvec[4] = mcity.make(mpos.make(324, 124), "m", 2);
+			
+			mvec[5] = mcity.make(mpos.make(50, 595), "m", 7);
+			mvec[6] = mcity.make(mpos.make(516, 114), "m", 9);
+			mvec[7] = mcity.make(mpos.make(296, 84), "m", 8);
+			mvec[8] = mcity.make(mpos.make(293, 261), "m", 4);
+			mvec[9] = mcity.make(mpos.make(298, 382), "m", 5);
+
+            nvec[0] = mcity.make(mpos.make(177, 480), "n", 3);
+            nvec[1] = mcity.make(mpos.make(126, 116), "n", 1);
+            nvec[2] = mcity.make(mpos.make(257, 199), "n", 4);
+            nvec[3] = mcity.make(mpos.make(365, 596), "n", 5);
+            nvec[4] = mcity.make(mpos.make(142, 19), "n", 3);
+			
+			nvec[5] = mcity.make(mpos.make(440, 279), "n", 3);
+			nvec[6] = mcity.make(mpos.make(104, 400), "n", 5);
+			nvec[7] = mcity.make(mpos.make(285, 383), "n", 2);
+			nvec[8] = mcity.make(mpos.make(73, 23), "n", 1);
+			nvec[9] = mcity.make(mpos.make(359, 309), "n", 5);
+
+            truckvec[0] = mtruck.make(mpos.make(598, 287), 2);
+            truckvec[1] = mtruck.make(mpos.make(446, 69), 2);
+            truckvec[2] = mtruck.make(mpos.make(180, 244), 2);
+			truckvec[3] = mtruck.make(mpos.make(361, 565), 2);
+			truckvec[4] = mtruck.make(mpos.make(335, 346), 2);
+
         } else {
             bselfdefine = true;
             schemeChoose = 'self-defined';
         }
     });
 
+	$("#source-quantity").click(function() {
+		bshow=false;
+		for(var iter = 0; iter < $('#inputS').val(); iter++){
+		var temnum=$("#inputSQ"+parseInt(iter + 1)).val();
+		mvec[iter].number=temnum;
+		if(temnum<0){
+			alert("warning:num<0");
+		}
+		}
+	});
+	
+	$("#demand-quantity").click(function() {
+		bshow=false;
+		for(var iter = 0; iter < $('#inputD').val(); iter++){
+		var temnum=$("#inputDQ"+parseInt(iter + 1)).val();
+		nvec[iter].number=temnum;
+		if(temnum<0){
+			alert("warning:num<0");
+		}
+		}
+	});
+	
+	$("truck-capacity").click(function() {
+		bshow=false;
+		for(var i = 0; i < $('#inputT').val(); i++){
+			var temnum=$("#inputTQ"+parseInt(iter + 1)).val();
+		nvec[iter].number=temnum;
+		if(temnum<0){
+			alert("warning:num<0");
+		}
+		}
+	});
+	
     // 对刚才选择的schemeChoose进行判断
     // 点击具体数量填写按钮
     $('.sq').on('click', function() {
@@ -1224,17 +1789,10 @@ $(document).ready(function() {
                     '</div>' +
                     '</div>');
             }
-            if (parseInt(s[0]) === 3) {
-                document.getElementById("inputSQ1").value = 6;
-                document.getElementById("inputSQ2").value = 5;
-                document.getElementById("inputSQ3").value = 4;
-            } else if (parseInt(s[0]) === 5) {
-                document.getElementById("inputSQ1").value = 2;
-                document.getElementById("inputSQ2").value = 3;
-                document.getElementById("inputSQ3").value = 2;
-                document.getElementById("inputSQ4").value = 3;
-                document.getElementById("inputSQ5").value = 2;
-            }
+          
+                for(var iter = 0; iter < $('#inputS').val(); iter++){
+				$("#inputSQ"+parseInt(iter + 1)).val(mvec[iter].number);
+				}
             $('#mysq').modal();
         }
 
@@ -1268,17 +1826,9 @@ $(document).ready(function() {
                     '</div>' +
                     '</div>');
             }
-            if (parseInt(s[1]) === 3) {
-                document.getElementById("inputDQ1").value = 3;
-                document.getElementById("inputDQ2").value = 2;
-                document.getElementById("inputDQ3").value = 1;
-            } else if (parseInt(s[1]) === 5) {
-                document.getElementById("inputDQ1").value = 3;
-                document.getElementById("inputDQ2").value = 2;
-                document.getElementById("inputDQ3").value = 2;
-                document.getElementById("inputDQ4").value = 3;
-                document.getElementById("inputDQ5").value = 2;
-            }
+            for(var iter = 0; iter < $('#inputD').val(); iter++){
+				$("#inputDQ"+parseInt(iter + 1)).val(nvec[iter].number);
+				}
             $('#mydq').modal();
         }
     });
@@ -1311,14 +1861,9 @@ $(document).ready(function() {
                     '</div>' +
                     '</div>');
             }
-            if (parseInt(s[2]) === 2) {
-                document.getElementById("inputTQ1").value = 2;
-                document.getElementById("inputTQ2").value = 2;
-            } else if (parseInt(s[2]) === 3) {
-                document.getElementById("inputTQ1").value = 2;
-                document.getElementById("inputTQ2").value = 2;
-                document.getElementById("inputTQ3").value = 2;
-            }
+           for(var iter = 0; iter < $('#inputT').val(); iter++){
+				$("#inputTQ"+parseInt(iter + 1)).val(truckvec[iter].capacity);
+			}
             $('#mytq').modal();
         }
     });
@@ -1347,10 +1892,6 @@ $(document).ready(function() {
         $("#step-three").addClass("active");
         $("#remove-down").removeClass("slide-container-down");
         $(".downslide").removeClass("downslide-up");
-        setTimeout(function() {
-            $("#remove-down").addClass("slide-container-down");
-            $(".downslide").addClass("downslide-up");
-        }, 10000);
     });
 
     $('#step-one').on('click', function() {
@@ -1374,8 +1915,9 @@ $(document).ready(function() {
         }, 10000);
 
     });
-
-    $(".confirm").click(function() {
+    
+	//generate
+    $(".generate").click(function() {
         if (bselfdefine) {
 
             snum = $("#inputS").val();
@@ -1412,7 +1954,6 @@ $(document).ready(function() {
             inputjsonstr = JSON.stringify(dataobj);
             minit();
             bshow = true;
-
         } else {
             minit();
             bshow = true;
@@ -1500,7 +2041,26 @@ function drawends() {
             ctx.strokeStyle = "red";
             ctx.stroke();
             ctx.closePath();
-        } else {
+        } 
+		else if(nvec[iter].number<0){
+			//过度满足，红圆中心画绿
+			//画红外圆环
+			ctx.beginPath();
+            ctx.arc(tx, ty, Rplace, 0, Math.PI * 2, true);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+			
+			//画内绿圆
+			 ctx.fillStyle = "#00AA00";
+            ctx.beginPath();
+            ctx.arc(tx, ty, Rplace-2, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.fill();
+			
+			ctx.closePath();
+		}
+		else {
             //半圆
             ctx.beginPath();
             ctx.arc(tx, ty, Rplace, 0, Math.PI * 2, true);
@@ -1718,6 +2278,7 @@ function upload(input) {
     } else {
         alert('error');
     }
-    alert("提交成功");
+    alert("Submitted Successfully!");
     jsonroot = jQuery.parseJSON(jsonstr);
+    $("#mymodal-upload").modal('hide');
 }

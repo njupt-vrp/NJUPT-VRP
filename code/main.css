@@ -8,8 +8,8 @@
         height: 600px;
         border-radius: 8px;
         position: absolute;
-        overflow: hidden;
         margin: 10px auto auto 10px;
+        overflow: hidden;
     }
 
     .left {
@@ -47,7 +47,7 @@
         display: block;
         position: absolute;
         left: 683px;
-        top: 340px;
+        top: 388px;
     }
 
     .upload{
@@ -118,6 +118,8 @@
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
         transition: 0.5s ease 200ms;
+        overflow-y: auto;
+        overflow-x: hidden;
 
     }
 
@@ -128,8 +130,7 @@
     }
 
     .slide{
-        overflow-y: auto;
-        overflow-x: hidden;
+        
     }
 
     .car-container {
@@ -322,7 +323,7 @@ ul.nav-pills li{
     width: 250px;
 }
 
-.confirm{
+.generate{
     margin-top: 330px;
     margin-left: 64px;
 }
