@@ -19,6 +19,10 @@
         border-right: 1px solid #c3c3c3;
     }
 
+    .navigation1 {
+        margin-top: 5px;
+    }
+
     canvas{
         border-right: 1px solid #c3c3c3;
     }
@@ -118,19 +122,21 @@
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
         transition: 0.5s ease 200ms;
-        overflow-y: auto;
-        overflow-x: hidden;
-
+        z-index: 2;
     }
 
     .slide-container-down {
         -webkit-transform: translateY(156px);
         transform: translateY(156px);
         transition: 0.5s ease-in 200ms;
+        z-index: 2;
     }
 
-    .slide{
-        
+    .slide {
+        width: 960px;
+        height: 156px;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .car-container {
@@ -351,12 +357,14 @@ ul.nav-pills li{
     position: absolute;
     top: 520px;
     left: 830px;
+    z-index: 1;
 }
 
 .next-step2{
     position: absolute;
     top: 520px;
     left: 830px;
+    z-index: 1;
 }
 
 .upload-text {
