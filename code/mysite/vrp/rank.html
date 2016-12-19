@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>ranking list</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'triangle.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script type="text/javascript" src="{% static 'jquery1x.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery-1.11.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap.js' %}"></script>
+   <script type="text/javascript" src="{% static 'triangle.js' %}"></script>
+    <script type="text/javascript" src="{% static 'extendPagination.js' %}"></script>
+
+</head>
+<body style="font-size: 20px;">
+    <h1 class="ranktitle">Ranking List</h1>
+    <ul class="nav nav-pills ranknav">
+        <li class="active num332"><a href="#table1">3&nbsp;3&nbsp;2</a></li>
+        <li class="num553"><a href="#table2">5&nbsp;5&nbsp;3</a></li>
+        <li class="num884"><a href="#table3">8&nbsp;8&nbsp;4</a></li>
+        <li class="num10105"><a href="#table4">10&nbsp;10&nbsp;5</a></li>
+        <li class="num202010"><a href="#table5">20&nbsp;20&nbsp;10</a></li>
+        <li class="num252515"><a href="#table6">25&nbsp;25&nbsp;15</a></li>
+        <li class="num303020"><a href="#table7">30&nbsp;30&nbsp;20</a></li>
+    </ul>
+
+    <div id="div1"> 
+    <table id="table1" class="table table-bordered table-hover datatable rank-information piece">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Algorithm</th>
+                    <th>Language</th>
+                    <th class="runtime1">Running Times</th>
+                    <th class="pathlength1">Pathlength</th>
+                    <th class="nowtime1">Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="callBackPager1" class="pagerwidth"></div>
+    </div>
+
+    <div id="div2" style="display: none;">
+        <table id="table2" class="table table-bordered table-hover datatable rank-information piece">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Algorithm</th>
+                    <th>Language</th>
+                    <th class="runtime2">Running Time</th>
+                    <th class="pathlength2">Pathlength</th>
+                    <th class="nowtime2">Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="callBackPager2" class="pagerwidth"></div>
+    </div>
+
+    <div id="div3" style="display: none;">
+        <table id="table3" class="table table-bordered table-hover datatable rank-information piece">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Algorithm</th>
+                    <th>Language</th>
+                    <th class="runtime3">Running Time</th>
+                    <th class="pathlength3">Pathlength</th>
+                    <th class="nowtime3">Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="callBackPager3" class="pagerwidth"></div>
+    </div>
+
+    <div id="div4" style="display: none;">
+        <table id="table4" class="table table-bordered table-hover datatable rank-information piece">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Algorithm</th>
+                    <th>Language</th>
+                    <th class="runtime4">Running Time</th>
+                    <th class="pathlength4">Pathlength</th>
+                    <th class="nowtime4">Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="callBackPager4" class="pagerwidth"></div>
+    </div>
+
+    <div id="div5" style="display: none;">
+        <table id="table5" class="table table-bordered table-hover datatable rank-information piece">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Algorithm</th>
+                    <th>Language</th>
+                    <th class="runtime5">Running Time</th>
+                    <th class="pathlength5">Pathlength</th>
+                    <th class="nowtime5">Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="callBackPager5" class="pagerwidth"></div>
+    </div>
+
+    <div id="div6" style="display: none;">
+        <table id="table6" class="table table-bordered table-hover datatable rank-information piece">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Algorithm</th>
+                    <th>Language</th>
+                    <th class="runtime6">Running Time</th>
+                    <th class="pathlength6">Pathlength</th>
+                    <th class="nowtime6">Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="callBackPager6" class="pagerwidth"></div>
+    </div>
+
+    <div id="div7" style="display: none;">
+        <table id="table7" class="table table-bordered table-hover datatable rank-information piece">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Algorithm</th>
+                    <th>Language</th>
+                    <th class="runtime7">Running Time</th>
+                    <th class="pathlength7">Pathlength</th>
+                    <th class="nowtime7">Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="callBackPager7" class="pagerwidth"></div>
+    </div>
+</body>
+<script>
+    rankruntime1 = [];
+    rankruntime2 = [];
+    rankruntime3 = [];
+    rankruntime4 = [];
+    rankruntime5 = [];
+    rankruntime6 = [];
+    rankruntime7 = [];
+    rankpathlen1 = [];
+    rankpathlen2 = [];
+    rankpathlen3 = [];
+    rankpathlen4 = [];
+    rankpathlen5 = [];
+    rankpathlen6 = [];
+    rankpathlen7 = [];
+    ranknowtime1 = [];
+    ranknowtime2 = [];
+    ranknowtime3 = [];
+    ranknowtime4 = [];
+    ranknowtime5 = [];
+    ranknowtime6 = [];
+    ranknowtime7 = [];
+
+    $(document).ready(function() {
+        $.ajax({
+            type: "POST",
+            url: "rankruntimejson1",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankruntime1 = data['rankruntimemsg1'];
+                    length1 = rankruntime1.length;
+                    (function callBackPagination() {
+                        var totalCount = length1, 
+                        showCount = 10,
+                        limit = 10;
+                        createTable(1, limit, totalCount);
+                        $('#callBackPager1').extendPagination({
+                            totalCount: totalCount,
+                            showCount: showCount,
+                            limit: limit,
+                            callback: function (curr, limit, totalCount) {
+                                createTable(curr, limit, totalCount);
+                            }
+                        });
+                    })();
+
+                    function createTable(currPage, limit, total) {
+                        var html = [], showNum = limit;
+                        if (total - (currPage * limit) < 0) {
+                            showNum = total - ((currPage - 1) * limit);
+                        }
+                        if (currPage*10 <= total) {
+                            for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                                html.push('<tr>' + '<td>' + rankruntime1[i][1] + '</td>');
+                                html.push('<td>' + rankruntime1[i][2] + '</td>');
+                                html.push('<td>' + rankruntime1[i][3] + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime1[i][4]).toFixed(3) + 's' + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime1[i][5]).toFixed(3) + 'px' + '</td>');
+                                html.push('<td>' + rankruntime1[i][6] + '</td>');
+                            }
+                        }
+                        else {
+                           for (var i = (currPage-1)*10; i < total; i++) {
+                            html.push('<tr>' + '<td>' + rankruntime1[i][1] + '</td>');
+                            html.push('<td>' + rankruntime1[i][2] + '</td>');
+                            html.push('<td>' + rankruntime1[i][3] + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime1[i][4]).toFixed(3) + 's' + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime1[i][5]).toFixed(3) + 'px' + '</td>');
+                            html.push('<td>' + rankruntime1[i][6] + '</td>');
+                        } 
+                    }
+                    var mainObj = $('#table1 tbody');
+                    mainObj.empty();
+                    mainObj.html(html.join(''));
+                    $('#table1').dataTable( {                         
+                    });
+                    html.length = 0;
+                }
+            }
+        },
+    });
+        $.ajax({
+            type: "POST",
+            url: "rankruntimejson2",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankruntime2 = data['rankruntimemsg2'];
+                    length2 = rankruntime2.length;
+                    (function callBackPagination() {
+                        var totalCount = length2, 
+                        showCount = 10,
+                        limit = 10;
+                        createTable(1, limit, totalCount);
+                        $('#callBackPager2').extendPagination({
+                            totalCount: totalCount,
+                            showCount: showCount,
+                            limit: limit,
+                            callback: function (curr, limit, totalCount) {
+                                createTable(curr, limit, totalCount);
+                            }
+                        });
+                    })();
+
+                    function createTable(currPage, limit, total) {
+                        var html = [], showNum = limit;
+                        if (total - (currPage * limit) < 0) {
+                            showNum = total - ((currPage - 1) * limit);
+                        }
+                        if (currPage*10 <= total) {
+                            for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                                html.push('<tr>' + '<td>' + rankruntime2[i][1] + '</td>');
+                                html.push('<td>' + rankruntime2[i][2] + '</td>');
+                                html.push('<td>' + rankruntime2[i][3] + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime2[i][4]).toFixed(3) + 's' + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime2[i][5]).toFixed(3) + 'px' + '</td>');
+                                html.push('<td>' + rankruntime2[i][6] + '</td>');
+                            }
+                        }
+                        else {
+                           for (var i = (currPage-1)*10; i < total; i++) {
+                            html.push('<tr>' + '<td>' + rankruntime2[i][1] + '</td>');
+                            html.push('<td>' + rankruntime2[i][2] + '</td>');
+                            html.push('<td>' + rankruntime2[i][3] + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime2[i][4]).toFixed(3) + 's' + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime2[i][5]).toFixed(3) + 'px' + '</td>');
+                            html.push('<td>' + rankruntime2[i][6] + '</td>');
+                        } 
+                    }
+                    var mainObj = $('#table2 tbody');
+                    mainObj.empty();
+                    mainObj.html(html.join(''));
+                    $('#table2').dataTable( {                         
+                    });
+                    html.length = 0;
+                }
+
+            }
+        },
+    });
+        $.ajax({
+            type: "POST",
+            url: "rankruntimejson3",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankruntime3 = data['rankruntimemsg3'];
+                    length3 = rankruntime3.length;
+                    (function callBackPagination() {
+                        var totalCount = length3, 
+                        showCount = 10,
+                        limit = 10;
+                        createTable(1, limit, totalCount);
+                        $('#callBackPager3').extendPagination({
+                            totalCount: totalCount,
+                            showCount: showCount,
+                            limit: limit,
+                            callback: function (curr, limit, totalCount) {
+                                createTable(curr, limit, totalCount);
+                            }
+                        });
+                    })();
+
+                    function createTable(currPage, limit, total) {
+                        var html = [], showNum = limit;
+                        if (total - (currPage * limit) < 0) {
+                            showNum = total - ((currPage - 1) * limit);
+                        }
+                        if (currPage*10 <= total) {
+                            for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                                html.push('<tr>' + '<td>' + rankruntime3[i][1] + '</td>');
+                                html.push('<td>' + rankruntime3[i][2] + '</td>');
+                                html.push('<td>' + rankruntime3[i][3] + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime3[i][4]).toFixed(3) + 's' + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime3[i][5]).toFixed(3) + 'px' + '</td>');
+                                html.push('<td>' + rankruntime3[i][6] + '</td>');
+                            }
+                        }
+                        else {
+                           for (var i = (currPage-1)*10; i < total; i++) {
+                            html.push('<tr>' + '<td>' + rankruntime3[i][1] + '</td>');
+                            html.push('<td>' + rankruntime3[i][2] + '</td>');
+                            html.push('<td>' + rankruntime3[i][3] + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime3[i][4]).toFixed(3) + 's' + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime3[i][5]).toFixed(3) + 'px' + '</td>');
+                            html.push('<td>' + rankruntime3[i][6] + '</td>');
+                        } 
+                    }
+                    var mainObj = $('#table3 tbody');
+                    mainObj.empty();
+                    mainObj.html(html.join(''));
+                    $('#table3').dataTable( {                         
+                    });
+                    html.length = 0;
+                }
+
+            }
+        },
+    });
+        $.ajax({
+            type: "POST",
+            url: "rankruntimejson4",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankruntime4 = data['rankruntimemsg4'];
+                    length4 = rankruntime4.length;
+                    (function callBackPagination() {
+                        var totalCount = length4, 
+                        showCount = 10,
+                        limit = 10;
+                        createTable(1, limit, totalCount);
+                        $('#callBackPager4').extendPagination({
+                            totalCount: totalCount,
+                            showCount: showCount,
+                            limit: limit,
+                            callback: function (curr, limit, totalCount) {
+                                createTable(curr, limit, totalCount);
+                            }
+                        });
+                    })();
+
+                    function createTable(currPage, limit, total) {
+                        var html = [], showNum = limit;
+                        if (total - (currPage * limit) < 0) {
+                            showNum = total - ((currPage - 1) * limit);
+                        }
+                        if (currPage*10 <= total) {
+                            for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                                html.push('<tr>' + '<td>' + rankruntime4[i][1] + '</td>');
+                                html.push('<td>' + rankruntime4[i][2] + '</td>');
+                                html.push('<td>' + rankruntime4[i][3] + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime4[i][4]).toFixed(3) + 's' + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime4[i][5]).toFixed(3) + 'px' + '</td>');
+                                html.push('<td>' + rankruntime4[i][6] + '</td>');
+                            }
+                        }
+                        else {
+                           for (var i = (currPage-1)*10; i < total; i++) {
+                            html.push('<tr>' + '<td>' + rankruntime4[i][1] + '</td>');
+                            html.push('<td>' + rankruntime4[i][2] + '</td>');
+                            html.push('<td>' + rankruntime4[i][3] + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime4[i][4]).toFixed(3) + 's' + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime4[i][5]).toFixed(3) + 'px' + '</td>');
+                            html.push('<td>' + rankruntime4[i][6] + '</td>');
+                        } 
+                    }
+                    var mainObj = $('#table4 tbody');
+                    mainObj.empty();
+                    mainObj.html(html.join(''));
+                    $('#table4').dataTable( {                         
+                    });
+                    html.length = 0;
+                }
+
+            }
+        },
+    });
+        $.ajax({
+            type: "POST",
+            url: "rankruntimejson5",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankruntime5 = data['rankruntimemsg5'];
+                    length5 = rankruntime5.length;
+                    (function callBackPagination() {
+                        var totalCount = length5, 
+                        showCount = 10,
+                        limit = 10;
+                        createTable(1, limit, totalCount);
+                        $('#callBackPager5').extendPagination({
+                            totalCount: totalCount,
+                            showCount: showCount,
+                            limit: limit,
+                            callback: function (curr, limit, totalCount) {
+                                createTable(curr, limit, totalCount);
+                            }
+                        });
+                    })();
+
+                    function createTable(currPage, limit, total) {
+                        var html = [], showNum = limit;
+                        if (total - (currPage * limit) < 0) {
+                            showNum = total - ((currPage - 1) * limit);
+                        }
+                        if (currPage*10 <= total) {
+                            for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                                html.push('<tr>' + '<td>' + rankruntime5[i][1] + '</td>');
+                                html.push('<td>' + rankruntime5[i][2] + '</td>');
+                                html.push('<td>' + rankruntime5[i][3] + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime5[i][4]).toFixed(3) + 's' + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime5[i][5]).toFixed(3) + 'px' + '</td>');
+                                html.push('<td>' + rankruntime5[i][6] + '</td>');
+                            }
+                        }
+                        else {
+                           for (var i = (currPage-1)*10; i < total; i++) {
+                            html.push('<tr>' + '<td>' + rankruntime5[i][1] + '</td>');
+                            html.push('<td>' + rankruntime5[i][2] + '</td>');
+                            html.push('<td>' + rankruntime5[i][3] + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime5[i][4]).toFixed(3) + 's' + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime5[i][5]).toFixed(3) + 'px' + '</td>');
+                            html.push('<td>' + rankruntime5[i][6] + '</td>');
+                        } 
+                    }
+                    var mainObj = $('#table5 tbody');
+                    mainObj.empty();
+                    mainObj.html(html.join(''));
+                    $('#table5').dataTable( {                         
+                    });
+                    html.length = 0;
+                }
+
+            }
+        },
+    });
+        $.ajax({
+            type: "POST",
+            url: "rankruntimejson6",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankruntime6 = data['rankruntimemsg6'];
+                    length6 = rankruntime6.length;
+                    (function callBackPagination() {
+                        var totalCount = length6, 
+                        showCount = 10,
+                        limit = 10;
+                        createTable(1, limit, totalCount);
+                        $('#callBackPager6').extendPagination({
+                            totalCount: totalCount,
+                            showCount: showCount,
+                            limit: limit,
+                            callback: function (curr, limit, totalCount) {
+                                createTable(curr, limit, totalCount);
+                            }
+                        });
+                    })();
+
+                    function createTable(currPage, limit, total) {
+                        var html = [], showNum = limit;
+                        if (total - (currPage * limit) < 0) {
+                            showNum = total - ((currPage - 1) * limit);
+                        }
+                        if (currPage*10 <= total) {
+                            for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                                html.push('<tr>' + '<td>' + rankruntime6[i][1] + '</td>');
+                                html.push('<td>' + rankruntime6[i][2] + '</td>');
+                                html.push('<td>' + rankruntime6[i][3] + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime6[i][4]).toFixed(3) + 's' + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime6[i][5]).toFixed(3) + 'px' + '</td>');
+                                html.push('<td>' + rankruntime6[i][6] + '</td>');
+                            }
+                        }
+                        else {
+                           for (var i = (currPage-1)*10; i < total; i++) {
+                            html.push('<tr>' + '<td>' + rankruntime6[i][1] + '</td>');
+                            html.push('<td>' + rankruntime6[i][2] + '</td>');
+                            html.push('<td>' + rankruntime6[i][3] + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime6[i][4]).toFixed(3) + 's' + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime6[i][5]).toFixed(3) + 'px' + '</td>');
+                            html.push('<td>' + rankruntime6[i][6] + '</td>');
+                        } 
+                    }
+                    var mainObj = $('#table6 tbody');
+                    mainObj.empty();
+                    mainObj.html(html.join(''));
+                    $('#table6').dataTable( {                         
+                    });
+                    html.length = 0;
+                }
+
+            }
+        },
+    });
+        $.ajax({
+            type: "POST",
+            url: "rankruntimejson7",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankruntime7 = data['rankruntimemsg7'];
+                    length7 = rankruntime7.length;
+                    (function callBackPagination() {
+                        var totalCount = length7, 
+                        showCount = 10,
+                        limit = 10;
+                        createTable(1, limit, totalCount);
+                        $('#callBackPager7').extendPagination({
+                            totalCount: totalCount,
+                            showCount: showCount,
+                            limit: limit,
+                            callback: function (curr, limit, totalCount) {
+                                createTable(curr, limit, totalCount);
+                            }
+                        });
+                    })();
+
+                    function createTable(currPage, limit, total) {
+                        var html = [], showNum = limit;
+                        if (total - (currPage * limit) < 0) {
+                            showNum = total - ((currPage - 1) * limit);
+                        }
+                        if (currPage*10 <= total) {
+                            for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                                html.push('<tr>' + '<td>' + rankruntime7[i][1] + '</td>');
+                                html.push('<td>' + rankruntime7[i][2] + '</td>');
+                                html.push('<td>' + rankruntime7[i][3] + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime7[i][4]).toFixed(3) + 's' + '</td>');
+                                html.push('<td>' + parseFloat(rankruntime7[i][5]).toFixed(3) + 'px' + '</td>');
+                                html.push('<td>' + rankruntime7[i][6] + '</td>');
+                            }
+                        }
+                        else {
+                           for (var i = (currPage-1)*10; i < total; i++) {
+                            html.push('<tr>' + '<td>' + rankruntime7[i][1] + '</td>');
+                            html.push('<td>' + rankruntime7[i][2] + '</td>');
+                            html.push('<td>' + rankruntime7[i][3] + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime7[i][4]).toFixed(3) + 's' + '</td>');
+                            html.push('<td>' + parseFloat(rankruntime7[i][5]).toFixed(3) + 'px' + '</td>');
+                            html.push('<td>' + rankruntime7[i][6] + '</td>');
+                        } 
+                    }
+                    var mainObj = $('#table7 tbody');
+                    mainObj.empty();
+                    mainObj.html(html.join(''));
+                    $('#table7').dataTable( {                         
+                    });
+                    html.length = 0;
+                }
+
+            }
+        },
+    });
+
+        $.ajax({
+            type: "POST",
+            url: "rankpathlenjson1",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankpathlen1 = data['rankpathlenmsg1'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "rankpathlenjson2",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankpathlen2 = data['rankpathlenmsg2'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "rankpathlenjson3",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankpathlen3 = data['rankpathlenmsg3'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "rankpathlenjson4",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankpathlen4 = data['rankpathlenmsg4'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "rankpathlenjson5",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankpathlen5 = data['rankpathlenmsg5'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "rankpathlenjson6",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankpathlen6 = data['rankpathlenmsg6'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "rankpathlenjson7",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    rankpathlen7 = data['rankpathlenmsg7'];
+                }
+            },
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "ranknowtimejson1",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    ranknowtime1 = data['ranknowtimemsg1'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "ranknowtimejson2",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    ranknowtime2 = data['ranknowtimemsg2'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "ranknowtimejson3",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    ranknowtime3 = data['ranknowtimemsg3'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "ranknowtimejson4",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    ranknowtime4 = data['ranknowtimemsg4'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "ranknowtimejson5",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    ranknowtime5 = data['ranknowtimemsg5'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "ranknowtimejson6",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    ranknowtime6 = data['ranknowtimemsg6'];
+                }
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: "ranknowtimejson7",
+            datatype: "json",
+            success: function(data) {
+                if (data['status'] == 'error') {
+                    alert('error');
+                }
+                else {
+                    ranknowtime7 = data['ranknowtimemsg7'];
+                }
+            },
+        });
+
+        $(".runtime1").click(function() {
+            $("#table1 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length1, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager1').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankruntime1[i][1] + '</td>');
+                        html.push('<td>' + rankruntime1[i][2] + '</td>');
+                        html.push('<td>' + rankruntime1[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime1[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime1[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankruntime1[i][6] + '</td>');
+                    }
+                }
+                else {
+                   for (var i = (currPage-1)*10; i < total; i++) {
+                    html.push('<tr>' + '<td>' + rankruntime1[i][1] + '</td>');
+                    html.push('<td>' + rankruntime1[i][2] + '</td>');
+                    html.push('<td>' + rankruntime1[i][3] + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime1[i][4]).toFixed(3) + 's' + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime1[i][5]).toFixed(3) + 'px' + '</td>');
+                    html.push('<td>' + rankruntime1[i][6] + '</td>');
+                } 
+            }
+            var mainObj = $('#table1 tbody');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+            html.length = 0;
+        }
+
+    });
+        $(".runtime2").click(function() {
+            $("#table2 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length2, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager2').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankruntime2[i][1] + '</td>');
+                        html.push('<td>' + rankruntime2[i][2] + '</td>');
+                        html.push('<td>' + rankruntime2[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime2[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime2[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankruntime2[i][6] + '</td>');
+                    }
+                }
+                else {
+                   for (var i = (currPage-1)*10; i < total; i++) {
+                    html.push('<tr>' + '<td>' + rankruntime2[i][1] + '</td>');
+                    html.push('<td>' + rankruntime2[i][2] + '</td>');
+                    html.push('<td>' + rankruntime1[i][3] + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime2[i][4]).toFixed(3) + 's' + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime2[i][5]).toFixed(3) + 'px' + '</td>');
+                    html.push('<td>' + rankruntime2[i][6] + '</td>');
+                } 
+            }
+            var mainObj = $('#table2 tbody');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+            html.length = 0;
+        }
+
+    });
+        $(".runtime3").click(function() {
+            $("#table3 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length3, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager3').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankruntime3[i][1] + '</td>');
+                        html.push('<td>' + rankruntime3[i][2] + '</td>');
+                        html.push('<td>' + rankruntime3[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime3[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime3[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankruntime3[i][6] + '</td>');
+                    }
+                }
+                else {
+                   for (var i = (currPage-1)*10; i < total; i++) {
+                    html.push('<tr>' + '<td>' + rankruntime3[i][1] + '</td>');
+                    html.push('<td>' + rankruntime3[i][2] + '</td>');
+                    html.push('<td>' + rankruntime3[i][3] + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime3[i][4]).toFixed(3) + 's' + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime3[i][5]).toFixed(3) + 'px' + '</td>');
+                    html.push('<td>' + rankruntime3[i][6] + '</td>');
+                } 
+            }
+            var mainObj = $('#table3 tbody');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+            html.length = 0;
+        }
+
+    });
+        $(".runtime4").click(function() {
+            $("#table4 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length4, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager4').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankruntime4[i][1] + '</td>');
+                        html.push('<td>' + rankruntime4[i][2] + '</td>');
+                        html.push('<td>' + rankruntime4[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime4[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime4[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankruntime4[i][6] + '</td>');
+                    }
+                }
+                else {
+                   for (var i = (currPage-1)*10; i < total; i++) {
+                    html.push('<tr>' + '<td>' + rankruntime4[i][1] + '</td>');
+                    html.push('<td>' + rankruntime4[i][2] + '</td>');
+                    html.push('<td>' + rankruntime4[i][3] + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime4[i][4]).toFixed(3) + 's' + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime4[i][5]).toFixed(3) + 'px' + '</td>');
+                    html.push('<td>' + rankruntime4[i][6] + '</td>');
+                } 
+            }
+            var mainObj = $('#table4 tbody');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+            html.length = 0;
+        }
+
+    });
+        $(".runtime5").click(function() {
+            $("#table5 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length5, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager5').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankruntime5[i][1] + '</td>');
+                        html.push('<td>' + rankruntime5[i][2] + '</td>');
+                        html.push('<td>' + rankruntime5[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime5[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime5[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankruntime5[i][6] + '</td>');
+                    }
+                }
+                else {
+                   for (var i = (currPage-1)*10; i < total; i++) {
+                    html.push('<tr>' + '<td>' + rankruntime5[i][1] + '</td>');
+                    html.push('<td>' + rankruntime5[i][2] + '</td>');
+                    html.push('<td>' + rankruntime5[i][3] + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime5[i][4]).toFixed(3) + 's' + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime5[i][5]).toFixed(3) + 'px' + '</td>');
+                    html.push('<td>' + rankruntime5[i][6] + '</td>');
+                } 
+            }
+            var mainObj = $('#table5 tbody');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+            html.length = 0;
+        }
+
+    });
+        $(".runtime6").click(function() {
+            $("#table6 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length6, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager6').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankruntime6[i][1] + '</td>');
+                        html.push('<td>' + rankruntime6[i][2] + '</td>');
+                        html.push('<td>' + rankruntime6[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime6[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime6[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankruntime6[i][6] + '</td>');
+                    }
+                }
+                else {
+                   for (var i = (currPage-1)*10; i < total; i++) {
+                    html.push('<tr>' + '<td>' + rankruntime6[i][1] + '</td>');
+                    html.push('<td>' + rankruntime6[i][2] + '</td>');
+                    html.push('<td>' + rankruntime6[i][3] + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime6[i][4]).toFixed(3) + 's' + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime6[i][5]).toFixed(3) + 'px' + '</td>');
+                    html.push('<td>' + rankruntime6[i][6] + '</td>');
+                } 
+            }
+            var mainObj = $('#table6 tbody');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+            html.length = 0;
+        }
+
+    });
+        $(".runtime7").click(function() {
+            $("#table7 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length7, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager7').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankruntime7[i][1] + '</td>');
+                        html.push('<td>' + rankruntime7[i][2] + '</td>');
+                        html.push('<td>' + rankruntime7[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime7[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankruntime7[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankruntime7[i][6] + '</td>');
+                    }
+                }
+                else {
+                   for (var i = (currPage-1)*10; i < total; i++) {
+                    html.push('<tr>' + '<td>' + rankruntime7[i][1] + '</td>');
+                    html.push('<td>' + rankruntime7[i][2] + '</td>');
+                    html.push('<td>' + rankruntime7[i][3] + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime7[i][4]).toFixed(3) + 's' + '</td>');
+                    html.push('<td>' + parseFloat(rankruntime7[i][5]).toFixed(3) + 'px' + '</td>');
+                    html.push('<td>' + rankruntime7[i][6] + '</td>');
+                } 
+            }
+            var mainObj = $('#table7 tbody');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+            html.length = 0;
+        }
+
+    });
+
+        $(".pathlength1").click(function() {
+            $("#table1 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length1, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager1').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen1[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen1[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen1[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen1[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen1[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen1[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen1[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen1[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen1[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen1[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen1[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen1[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table1 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+        });
+        $(".pathlength2").click(function() {
+            $("#table2 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length2, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager2').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen2[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen2[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen2[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen2[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen2[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen2[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen2[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen2[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen2[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen2[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen2[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen2[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table2 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".pathlength3").click(function() {
+            $("#table3 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length3, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager3').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen3[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen3[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen3[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen3[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen3[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen3[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen3[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen3[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen3[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen3[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen3[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen3[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table3 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".pathlength4").click(function() {
+            $("#table4 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length4, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager4').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen4[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen4[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen4[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen4[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen4[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen4[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen4[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen4[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen4[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen4[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen4[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen4[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table4 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".pathlength5").click(function() {
+            $("#table5 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length5, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager5').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen5[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen5[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen5[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen5[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen5[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen5[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen5[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen5[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen5[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen5[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen5[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen5[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table5 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".pathlength6").click(function() {
+            $("#table6 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length6, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager6').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen6[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen6[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen6[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen6[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen6[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen6[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen6[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen6[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen6[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen6[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen6[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen6[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table6 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".pathlength7").click(function() {
+            $("#table7 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length7, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager7').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen7[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen7[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen7[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen7[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen7[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen7[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + rankpathlen7[i][1] + '</td>');
+                        html.push('<td>' + rankpathlen7[i][2] + '</td>');
+                        html.push('<td>' + rankpathlen7[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen7[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(rankpathlen7[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + rankpathlen7[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table7 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+
+        $(".nowtime1").click(function() {
+            $("#table1 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length1, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager1').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime1[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime1[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime1[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime1[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime1[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime1[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime1[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime1[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime1[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime1[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime1[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime1[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table1 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+
+        });
+        $(".nowtime2").click(function() {
+            $("#table2 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length2, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager2').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime2[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime2[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime2[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime2[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime2[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime2[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime2[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime2[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime2[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime2[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime2[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime2[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table2 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".nowtime3").click(function() {
+            $("#table3 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length3, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager3').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime3[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime3[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime3[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime3[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime3[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime3[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime3[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime3[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime3[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime3[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime3[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime3[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table3 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".nowtime4").click(function() {
+            $("#table4 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length4, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager4').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime4[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime4[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime4[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime4[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime4[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime4[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime4[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime4[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime4[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime4[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime4[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime4[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table4 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".nowtime5").click(function() {
+            $("#table5 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length5, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager5').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime5[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime5[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime5[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime5[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime5[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime5[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime5[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime5[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime5[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime5[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime5[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime5[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table5 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".nowtime6").click(function() {
+            $("#table6 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length6, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager6').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime6[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime6[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime6[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime6[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime6[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime6[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime6[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime6[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime6[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime6[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime6[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime6[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table6 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+        $(".nowtime7").click(function() {
+            $("#table7 tbody").html("");
+            (function callBackPagination() {
+                var totalCount = length7, 
+                showCount = 10,
+                limit = 10;
+                createTable(1, limit, totalCount);
+                $('#callBackPager7').extendPagination({
+                    totalCount: totalCount,
+                    showCount: showCount,
+                    limit: limit,
+                    callback: function (curr, limit, totalCount) {
+                        createTable(curr, limit, totalCount);
+                    }
+                });
+            })();
+
+            function createTable(currPage, limit, total) {
+                var html = [], showNum = limit;
+                if (total - (currPage * limit) < 0) {
+                    showNum = total - ((currPage - 1) * limit);
+                }
+                if (currPage*10 <= total) {
+                    for (var i = (currPage-1)*10; i < currPage*10; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime7[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime7[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime7[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime7[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime7[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime7[i][6] + '</td>');
+                    }
+                }
+                else {
+                    for (var i = (currPage-1)*10; i < total; i++) {
+                        html.push('<tr>' + '<td>' + ranknowtime7[i][1] + '</td>');
+                        html.push('<td>' + ranknowtime7[i][2] + '</td>');
+                        html.push('<td>' + ranknowtime7[i][3] + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime7[i][4]).toFixed(3) + 's' + '</td>');
+                        html.push('<td>' + parseFloat(ranknowtime7[i][5]).toFixed(3) + 'px' + '</td>');
+                        html.push('<td>' + ranknowtime7[i][6] + '</td>');
+                    } 
+                }
+                var mainObj = $('#table7 tbody');
+                mainObj.empty();
+                mainObj.html(html.join(''));
+                html.length = 0;
+            }
+            
+        });
+
+        $(".ranknav li").click(function() {
+            $(".ranknav li").removeClass("active");
+            $(this).addClass("active");
+        });  
+
+        $(".num332").click(function() {
+            $("#div1").removeAttr("style");
+            $("#div2").attr("style", "display:none;");
+            $("#div3").attr("style", "display:none;");
+            $("#div4").attr("style", "display:none;");
+            $("#div5").attr("style", "display:none;");
+            $("#div6").attr("style", "display:none;");
+            $("#div7").attr("style", "display:none;");
+        });
+        $(".num553").click(function() {
+            $("#div2").removeAttr("style");
+            $("#div1").attr("style", "display:none;");
+            $("#div3").attr("style", "display:none;");
+            $("#div4").attr("style", "display:none;");
+            $("#div5").attr("style", "display:none;");
+            $("#div6").attr("style", "display:none;");
+            $("#div7").attr("style", "display:none;");
+        });
+        $(".num884").click(function() {
+            $("#div3").removeAttr("style");
+            $("#div1").attr("style", "display:none;");
+            $("#div2").attr("style", "display:none;");
+            $("#div4").attr("style", "display:none;");
+            $("#div5").attr("style", "display:none;");
+            $("#div6").attr("style", "display:none;");
+            $("#div7").attr("style", "display:none;");
+        });
+        $(".num10105").click(function() {
+            $("#div4").removeAttr("style");
+            $("#div1").attr("style", "display:none;");
+            $("#div2").attr("style", "display:none;");
+            $("#div3").attr("style", "display:none;");
+            $("#div5").attr("style", "display:none;");
+            $("#div6").attr("style", "display:none;");
+            $("#div7").attr("style", "display:none;");
+        });
+        $(".num202010").click(function() {
+            $("#div5").removeAttr("style");
+            $("#div1").attr("style", "display:none;");
+            $("#div2").attr("style", "display:none;");
+            $("#div3").attr("style", "display:none;");
+            $("#div4").attr("style", "display:none;");
+            $("#div6").attr("style", "display:none;");
+            $("#div7").attr("style", "display:none;");
+        });
+        $(".num252515").click(function() {
+            $("#div6").removeAttr("style");
+            $("#div1").attr("style", "display:none;");
+            $("#div2").attr("style", "display:none;");
+            $("#div4").attr("style", "display:none;");
+            $("#div5").attr("style", "display:none;");
+            $("#div3").attr("style", "display:none;");
+            $("#div7").attr("style", "display:none;");
+        });
+        $(".num303020").click(function() {
+            $("#div7").removeAttr("style");
+            $("#div1").attr("style", "display:none;");
+            $("#div2").attr("style", "display:none;");
+            $("#div4").attr("style", "display:none;");
+            $("#div5").attr("style", "display:none;");
+            $("#div6").attr("style", "display:none;");
+            $("#div3").attr("style", "display:none;");
+        });
+
+    });
+
+</script>
+</html>
