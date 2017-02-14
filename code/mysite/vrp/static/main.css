@@ -1,0 +1,508 @@
+    button {
+        outline: none;
+    }
+
+    .total {
+        border: 1px solid #c3c3c3;
+        width: 960px;
+        height: 600px;
+        border-radius: 8px;
+        position: absolute;
+        margin: 10px auto auto 10px;
+        overflow: hidden;
+    }
+
+    .left {
+        width: 600px;
+        height: 600px;
+        float: left;
+        border-right: 1px solid #c3c3c3;
+    }
+
+    .navigation1 {
+        margin-top: 5px;
+    }
+
+    canvas{
+        border-right: 1px solid #c3c3c3;
+    }
+
+    .same {
+        margin: 20px auto 15px 625px;
+    }
+
+    .start{
+        display: block;
+        width: 80px;
+        height: 34px;
+        margin-left: 750px;
+        margin-top: 80px;
+    }
+
+    .cpause {
+        display: block;
+        width: 80px;
+        height: 34px;
+        margin-left: 750px;
+        margin-top: 20px;
+    }
+
+    .rank {
+        display: block;
+        width: 150px;
+        height: 34px;
+        margin-left: 717px;
+        margin-top: 17px;
+    }
+
+    .rank a {
+       color: white;
+   }
+
+   .uploadbutton{
+    display: block;
+    position: absolute;
+    left: 683px;
+    top: 388px;
+}
+
+.upload{
+    display: block;
+    position: relative;
+    left: 502px;
+    top: -14px;
+    width: 73px;
+    height: 34px;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    z-index: 1;
+}
+
+.upload:hover{
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.upload:focus,
+.upload.focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #122b40;
+}
+
+.cancel{
+    position: relative;
+    left: -80px;
+    top: 20px;
+}
+
+#isubm {
+    position: absolute;
+    left: 517px;
+    top: 158px;
+    opacity: 0;
+    height: 37px;
+    width: 80px;
+    height: 50px;
+    z-index: 2;
+}
+
+.car,
+.city {
+    width: 153px;
+    height: 33px;
+}
+
+.slide-container{
+    position: absolute;
+    top: 443px;
+    width: 960px;
+    height: 156px;
+    font-size: 17px;
+    font-weight: 900;
+    background-color: white;
+    border-top: 1px solid #c3c3c3;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    transition: 0.5s ease 200ms;
+    z-index: 2;
+}
+
+.slide-container-down {
+    -webkit-transform: translateY(156px);
+    transform: translateY(156px);
+    transition: 0.5s ease-in 200ms;
+    z-index: 2;
+}
+
+.slide {
+    width: 960px;
+    height: 156px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.car-container {
+    height: 100px;
+}
+
+.dot-container {
+    display: inline-block;
+    position: relative;
+    left: 103px;
+    top: -5px;
+    width: 21px;
+}
+
+.dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 23px;
+    background-color: red;
+}
+
+.dot-green {
+    background-color: green;
+}
+
+.dot-yellow {
+    background-color: yellow;
+}
+
+.dot-red {
+    background-color: red;
+}
+
+.cityname{
+    white-space: nowrap;
+}
+
+
+
+.block {
+    position: relative;
+    top: -32px;
+    left: 101px;
+    width: 50px;
+    height: 3px;
+    display: inline-block;
+    background-color: #c0c0c0;
+}
+
+.carname {
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+    left: 34px;
+    margin: 0;
+}
+
+.visited {
+    background-color: green;
+}
+
+.downslide {
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #c3c3c3;
+    border-right: none;
+    background-color: rgba(72, 72, 72, 0.8);
+    transform: rotate(0deg);
+    transition: rotate 200ms 200ms;
+}
+
+.downslide-up{
+    transform: rotate(180deg);
+    transition: rotate 200ms 200ms;
+}
+.downslide:hover {
+    background-color: black;
+}
+
+@font-face {
+    font-family: "imooc-icon";
+    src: url("fonts/icomoon.eot");
+    /*IE9兼容模式*/
+    src: url("fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.ttf") format("truetype"), url("fonts/icomoon.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.imooc-icon {
+    position: relative;
+    left: -7px;
+    font-family: "imooc-icon";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 0.8;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: gray-scale;
+}
+
+.icon-chevron-down:before {
+    content: "\e902";
+}
+
+.icon-chevron-up:before {
+    content: "\e901";
+}
+
+.icon-check:before {
+    content: "\e900";
+}
+
+.check {
+    position: relative;
+    top: -23px;
+    left: 79px;
+    width: 25px;
+    height: 25px;
+    border-radius: 23px;
+    background-color: #c0c0c0;
+    z-index: 2;
+    display: inline-block;
+}
+
+.icon-check {
+    display: block;
+    position: relative;
+    top: 4px;
+    left: 0px;
+    font-size: 25px;
+}
+.icon-check-green{
+   color: green;
+}
+
+.upslide{
+    position: absolute;
+    top: 580px;
+    left: 579px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #c3c3c3;
+    border-right: none;
+    background-color: rgba(72, 72, 72, 0.8);
+}
+
+.upslide:hover {
+    background-color: black;
+}
+
+.arithmetic{
+    margin-top: 20px;
+    border-bottom: 1px solid #c3c3c3;
+    padding-bottom: 60px;
+}
+
+.arithmetic h3 {
+    display: block;
+    margin-left: 621px;
+    font-family: "微软雅黑";
+}
+
+.selection {
+    display: block;
+    margin: 15px auto 10px 620px;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    font-weight: 500;
+}
+.nav-pills{
+    display: inline-block;
+    margin-left:67px;
+}
+
+ul.nav-pills li{
+    margin-right: 20px;
+}
+
+.menu1{
+    margin-left: 63px;
+    width: 250px;
+}
+
+.list1{
+    margin-right: 45px;
+    width: 250px;
+}
+
+.generate{
+    margin-top: 330px;
+    margin-left: 64px;
+}
+
+.data-download{
+    margin-top: 330px;
+    margin-left: 15px;
+}
+
+.upload-total h3{
+    display: block;
+    margin-left: 621px;
+}
+
+.nameinput{
+    display: block;
+    margin-left: -41px;
+}
+
+.namewidth{
+    width: 117px;
+}
+
+.next-step{
+    position: absolute;
+    top: 520px;
+    left: 830px;
+    z-index: 1;
+}
+
+.next-step2{
+    position: absolute;
+    top: 520px;
+    left: 830px;
+    z-index: 1;
+}
+
+.upload-text {
+    display: block;
+    position: relative;
+    top: -267px;
+    left: 681px;
+    border: 1px solid #c3c3c3;
+}
+
+.address-width {
+    width: 200px;
+}
+
+.email-box {
+    margin-left: 140px;
+}
+
+.form-s {
+    position: absolute;
+    top: 95px;
+    left: 670px;
+}
+
+.form-d {
+    position: absolute;
+    top: 145px;
+    left: 670px;
+}
+
+.form-t {
+    position: absolute;
+    top: 195px;
+    left: 670px;
+}
+
+.sq {
+    width: 188px;
+    position: absolute;
+    top: 245px;
+    left: 671px;
+}
+
+.dq {
+    width: 188px;
+    position: absolute;
+    top: 295px;
+    left: 671px;
+}
+
+.tq {
+    width: 188px;
+    position: absolute;
+    top: 345px;
+    left: 671px;
+}
+
+.input-schedule {
+    position: relative;
+    left: 30px;
+}
+
+.input-schedule-t {
+    position: relative;
+    left: 32px;
+}
+
+.form-width {
+    width: 120px;
+}
+
+h1.ranktitle {
+    text-align: center;
+}
+
+.ranknav {
+    margin-left: 300px;
+    margin-top: 40px;
+}
+
+.rank-information {
+    width: 1200px;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.splitpage {
+    width: 600px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 610px;
+}
+
+a {
+    text-decoration:none;
+}
+
+a:hover { 
+    text-decoration:none;
+}
+
+.pagerwidth {
+    display: block;
+    width: 650px;
+    margin-top: 10px;
+    margin-left: 50%;
+}
+
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid red;
+    position: absolute;
+    top: 195px;
+    margin-left: 20px;
+}
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid red;
+    position: absolute;
+    top: 195px;
+    margin-left: 20px;
+}

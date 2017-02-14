@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html lang="en">
+{% load staticfiles %}
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+  <title>3.1</title>
+  <script type="text/javascript" src="{% static 'jquery1x.js' %}"></script>
+  <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'linkmain3.1.js' %}"></script>
+</head>
+
+<body>
+  <div class="total">
+    <div class="left">
+      <canvas id="myCanvas" width="600px" height="600px">
+        Your browser does not support the canvas element.
+      </canvas>
+      <div id="remove-down" class="slide-container slide-container-down">
+        <button type="button" class="downslide downslide-up">
+          <i class="imooc-icon icon-chevron-down"></i>
+        </button>
+        <div class="slide">
+          <div class="state">
+          </div>
+        </div>
+      </div> 
+    </div>
+    <div class="right">
+      <ul class="nav nav-pills navigation1">
+        <li id="step-one"><a href="javascript:void(0);">Step1</a></li>
+        <li id="step-two"><a href="javascript:void(0);">Step2</a></li>
+        <li class="active" id="step-three"><a href="javascript:void(0);">Step3</a></li>
+      </ul>
+      <div class="total-step">
+        <!--step1-->
+        <div class="step-one" style="display: none;">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle menu1" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              Choose Scheme
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right list1" role="menu" aria-labelledby="dropdownMenu1" id="choosescheme">
+              <li role="presentation" class="schemeclass" data-scheme="3-3-2"><a role="menuitem" tabindex="-1" href="javascript:void(0);">S:3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D:3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T:2</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation" class=" schemeclass" data-scheme="5-5-3"><a role="menuitem" tabindex="-1" href="javascript:void(0);">S:5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D:5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T:3</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation" class="schemeclass" data-scheme="8-8-4"><a role="menuitem" tabindex="-1" href="javascript:void(0);">S:8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D:8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T:4</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation" class="schemeclass" data-scheme="10-10-5"><a role="menuitem" tabindex="-1" href="javascript:void(0);">S:10&nbsp;&nbsp;&nbsp;&nbsp;D:10&nbsp;&nbsp;&nbsp;&nbsp;T:5</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation" class="schemeclass" data-scheme="20-20-10"><a role="menuitem" tabindex="-1" href="javascript:void(0);">S:20&nbsp;&nbsp;&nbsp;&nbsp;D:20&nbsp;&nbsp;&nbsp;&nbsp;T:10</a></li>
+              <li role="presentation" class="divider"></li>
+        <li role="presentation" class="schemeclass" data-scheme="25-25-15"><a role="menuitem" tabindex="-1" href="javascript:void(0);">S:25&nbsp;&nbsp;&nbsp;&nbsp;D:25&nbsp;&nbsp;&nbsp;&nbsp;T:15</a></li>
+              <li role="presentation" class="divider"></li>
+        <li role="presentation" class="schemeclass" data-scheme="30-30-20"><a role="menuitem" tabindex="-1" href="javascript:void(0);">S:30&nbsp;&nbsp;&nbsp;&nbsp;D:30&nbsp;&nbsp;&nbsp;&nbsp;T:20</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" class="self-defining">Custom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Data</a></li>
+            </ul>
+          </div>
+          <form class="form-horizontal" role="form">
+            <div class="form-group form-s">
+              <label for="inputS" class="col-sm-2 control-label">Source</label>
+              <div class="col-sm-10 input-schedule">
+                <input type="number" class="form-control form-width" id="inputS">
+              </div>
+            </div>
+            <div class="form-group form-d">
+              <label for="inputD" class="col-sm-2 control-label">Demand</label>
+              <div class="col-sm-10 input-schedule">
+                <input type="number" class="form-control form-width" id="inputD">
+              </div>
+            </div>
+            <div class="form-group form-t">
+              <label for="inputT" class="col-sm-2 control-label">Truck</label>
+              <div class="col-sm-10 input-schedule-t">
+                <input type="number" class="form-control form-width" id="inputT">
+              </div>
+            </div>
+            <input type="button" class="btn btn-primary sq" value="Source Quantity">
+            <input type="button" class="btn btn-primary dq" value="Demand Quantity">
+            <input type="button" class="btn btn-primary tq" value="Truck Quantity">
+          </form>
+          <button class="btn btn-primary generate" type="button">Generate</button>
+          <button class="btn btn-primary data-download cdownload" data-toggle="modal" data-target="#mymodal-data" type="button">Test Data Download</button>
+          <div class="modal" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title">Download Data</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Data file is a .txt file called inputjson.txt that wirtten in json form,confirm to download</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                  <button type="button" class="btn btn-primary" id="idownload" data-dismiss="modal">confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary next-step" type="button">Next Step</button>
+        </div>
+        <!--step2-->
+        <div class="step-two" style="display: none;">
+          <div class="arithmetic">
+            <h3>Choose Inner Algorithm</h3>
+            <form role="form">
+              <div class="radio">
+                <label class="selection">
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="ant"> ant colony
+                </label>
+              </div>
+              <div class="radio">
+                <label class="selection">
+                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="genetic"> genetic
+                </label>
+              </div>
+              <div class="radio">
+                <label class="selection">
+                  <input type="radio" name="optionsRadios" id="optionsRadios3" value="clustering"> clustering
+                </label>
+              </div>
+              <div class="radio">
+                <label class="selection">
+                  <input type="radio" name="optionsRadios" id="optionsRadios5" value="none" checked> none
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="upload-total">
+            <h3>Upload Your Algorithm</h3>
+            <button type="button" data-toggle="modal" data-target="#mymodal-upload" class="btn btn-primary uploadbutton">Upload Result</button>
+            <div class="modal" id="mymodal-upload" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Upload</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal nameinput" role="form">
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control namewidth" id="inputText">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default cancel" data-dismiss="modal">cancel</button>
+                    <input type="file" id="isubm" value="Upload Result Txt" onchange="upload(this)" />
+                    <button type="button" class="btn btn-primary upload" id="iupload">confirm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary next-step2" type="button" data-toggle="modal" data-target="#send-email">Next Step</button>
+          
+
+        </div>
+        <!--step3-->
+        <div class="step-three">
+
+          <div class="modal" id="send-email" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title">Send Email</h4>
+                </div>
+                <div class="modal-body">
+                 <p>We have sent inputjson to the backstage,and it will take some time.Pleae fill in your email and the number of times that you want the program to run,we will send an E-mail to your mailbox after a while.Then,you can click the link in the mail to start running.</p>
+                 <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label for="inputtime" class="col-sm-4 control-label">time</label>
+                    <div class="time-box">
+                      <input type="text" class="col-sm-10 form-control address-width" id="input-time">
+                    </div>
+                    <label for="inputEmail4" class="col-sm-4 control-label">email address</label>
+                    <div class="email-box">
+                      <input type="text" class="col-sm-10 form-control address-width" id="input-email">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                <button type="button" class="btn btn-primary email-name" data-dismiss="modal">confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <button type="button" class="start btn btn-primary" id="istart">Start</button>
+        <button type="button" class="cpause btn btn-primary" id="ipause">Pause</button>
+        <div class="modal" id="overmodal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Over</h4>
+              </div>
+              <div class="modal-body">
+                <p id="replacetxt"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="mysq" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Input Source Quantity</h4>
+      </div>
+      <div class="modal-body add-sq">
+        <div class="form-group inputsq">
+          <label for="inputsq" class="col-sm-4 control-label sq-label">Source Quantity 1</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputSQ1">
+          </div>
+        </div>
+        <div class="form-group inputsq">
+          <label for="inputsq" class="col-sm-4 control-label sq-label">Source Quantity 2</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputSQ2">
+          </div>
+        </div>
+        <div class="form-group inputsq">
+          <label for="inputsq" class="col-sm-4 control-label sq-label">Source Quantity 3</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputSQ3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-primary" id="source-quantity" data-dismiss="modal">confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="mydq" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Input Demand Quantity</h4>
+      </div>
+      <div class="modal-body add-dq">
+        <div class="form-group inputdq">
+          <label for="inputdq" class="col-sm-4 control-label dq-label">Demand Quantity 1</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputDQ1">
+          </div>
+        </div>
+        <div class="form-group inputdq">
+          <label for="inputdq" class="col-sm-4 control-label dq-label">Demand Quantity 2</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputDQ2">
+          </div>
+        </div>
+        <div class="form-group inputdq">
+          <label for="inputdq" class="col-sm-4 control-label dq-label">Demand Quantity 3</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputDQ3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-primary" id="demand-quantity" data-dismiss="modal">confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="mytq" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Input Truck Capacity</h4>
+      </div>
+      <div class="modal-body add-tq">
+        <div class="form-group inputtq">
+          <label for="inputtq" class="col-sm-4 control-label tq-label">Truck Capacity 1</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputTQ1">
+          </div>
+        </div>
+        <div class="form-group inputtq">
+          <label for="inputtq" class="col-sm-4 control-label tq-label">Truck Capacity 2</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control form-width" id="inputTQ2">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-primary" id="truck-capacity" data-dismiss="modal">confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
